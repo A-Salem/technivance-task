@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha apis/**/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'"
   },
   "author": "Ahmed Salem",
   "license": "ISC",
@@ -13,5 +14,12 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "expect": "^23.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "randomstring": "^1.1.5",
+    "supertest": "^3.1.0"
   }
 }

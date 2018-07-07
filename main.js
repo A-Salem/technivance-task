@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 // DB Connect String
 const connect = "postgress://techRole:!F-*sSRh26@localhost/technivance";
 
-module.exports = { Pool, Client, connect };
+module.exports = { app, Pool, Client, connect };
 
 const cartsApis = require('./apis/carts.js');
 const customersApis = require('./apis/customers.js');

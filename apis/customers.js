@@ -10,6 +10,11 @@ let addCustomer = async (req, res) => {
 
   await client.connect();
 
+  let sameCustomer = await client.query('SELECT * FROM customers WHERE email=$1', [reqBody.email]);
+
+  if(sameCustomer.rows.length)
+    return res.status(400).send({error: 'This customer already exists'});
+
   try {
     result = await client.query('INSERT INTO customers(email, first_name, last_name, store_credit) VALUES($1, $2, $3, $4)',
         [reqBody.email, reqBody.first_name, reqBody.last_name, reqBody.store_credit]);
